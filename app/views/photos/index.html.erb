@@ -2,8 +2,21 @@
 
 <h1>写真一覧</h1>
 
+<% if flash[:alert] %>
+  <div style="color: red;">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<% if flash[:notice] %>
+  <div style="color: green;">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
 <div>
   <%= link_to "写真を新規にアップロード", new_photo_path %>
+  <%= link_to "OAuth認可", oauth_authorize_path %>
 </div>
 
 <style>
