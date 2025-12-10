@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   post   "login",  to: "sessions#create"
   delete "logout", to: "sessions#destroy"
 
-  resources :photos, only: [:index, :new, :create]
+  resources :photos, only: [ :index, :new, :create ]
+
+  get "oauth/authorize", to: "oauth#authorize", as: :oauth_authorize
 end
