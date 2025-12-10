@@ -6,12 +6,33 @@
   <%= link_to "写真を新規にアップロード", new_photo_path %>
 </div>
 
+<style>
+  .photos-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .photo-item {
+    display: inline-block;
+    margin: 10px;
+    vertical-align: top;
+  }
+
+  .photo-image {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+    border: 1px solid;
+  }
+</style>
+
 <% if @photos.any? %>
-  <ul>
+  <ul class="photos-list">
     <% @photos.each do |photo| %>
-      <li>
-        <h3><%= photo.title %></h3>
-        <%= image_tag photo.image, alt: photo.title %>
+      <li class="photo-item">
+        <p><%= photo.title %></p>
+        <%= image_tag photo.image, alt: photo.title, class: "photo-image" %>
       </li>
     <% end %>
   </ul>
