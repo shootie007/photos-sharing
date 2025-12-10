@@ -15,6 +15,5 @@ Rails.application.routes.draw do
   post   "login",  to: "sessions#create"
   delete "logout", to: "sessions#destroy"
 
-  # 写真管理（次ステップで実装予定）
-  resources :photos, only: [:index]
+  resources :photos, only: [:index, :new]
 end
