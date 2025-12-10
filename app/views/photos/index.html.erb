@@ -1,0 +1,19 @@
+<%= render "shared/logout_link" %>
+
+<h1>写真一覧</h1>
+
+<div>
+  <%= link_to "写真を新規にアップロード", new_photo_path %>
+</div>
+
+<% if @photos.any? %>
+  <ul>
+    <% @photos.each do |photo| %>
+      <li>
+        <h3><%= photo.title %></h3>
+        <%= image_tag photo.image, alt: photo.title %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
