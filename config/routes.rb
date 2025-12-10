@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :photos, only: [ :index, :new, :create ]
 
   get "oauth/authorize", to: "oauth#authorize", as: :oauth_authorize
+  get "oauth/callback", to: "oauth#callback", as: :oauth_callback
 end
