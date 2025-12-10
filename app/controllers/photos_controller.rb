@@ -23,4 +23,3 @@ class PhotosController < ApplicationController
     params.require(:photo).permit(:title, :image)
   end
 end
-
