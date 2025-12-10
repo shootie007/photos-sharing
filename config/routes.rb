@@ -15,8 +15,10 @@ Rails.application.routes.draw do
   post   "login",  to: "sessions#create"
   delete "logout", to: "sessions#destroy"
 
-  resources :photos, only: [ :index, :new, :create ]
+  resources :photos, only: [ :index, :new, :create ] do
+    resources :tweets, only: [ :create ], controller: "oauth_tweets"
+  end
 
-  get "oauth/authorize", to: "oauth#authorize", as: :oauth_authorize
-  get "oauth/callback", to: "oauth#callback", as: :oauth_callback
+  get "oauth/authorize", to: "oauth_tweets#authorize", as: :oauth_authorize
+  get "oauth/callback", to: "oauth_tweets#callback", as: :oauth_callback
 end

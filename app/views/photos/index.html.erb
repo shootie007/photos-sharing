@@ -46,6 +46,9 @@
       <li class="photo-item">
         <p><%= photo.title %></p>
         <%= image_tag photo.image, alt: photo.title, class: "photo-image" %>
+        <% if session[:oauth_access_token] %>
+          <%= button_to "ツイートする", photo_tweets_path(photo), method: :post, class: "tweet-button" %>
+        <% end %>
       </li>
     <% end %>
   </ul>
